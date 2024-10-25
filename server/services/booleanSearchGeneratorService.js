@@ -27,7 +27,7 @@ export const booleanSearchGenerator = async (jobDescription) => {
 
     // Extract generated boolean search query from response
     const booleanSearchQuery = JSON.parse(response.choices[0].message.content);
-    console.log(booleanSearchQuery);
+    // console.log(booleanSearchQuery);
     return booleanSearchQuery;
   } catch (error) {
     throw error;
@@ -35,27 +35,4 @@ export const booleanSearchGenerator = async (jobDescription) => {
   }
 };
 
-await booleanSearchGenerator(`The Role
-
-We build large-scale transaction processing systems that can work with many current and future payment networks. We build applications that help banks realise the value of this new approach early. We help banks to rapidly deliver the value of these applications to their customers.
-
-What would you do here? 
-
-Building highly-scalable and secure payments platform
-Working with various product teams gathering requirements and adding capabilities 
-Using cutting-edge cryptography to secure payments beyond industry standards.
-Deriving actionable insights by mining TBs of data.
-Building low-level infrastructure that aims to push the boundaries of network performance.
-Identify patterns and provide solutions to class of problems
-Research, evaluate and socialize new tools, technologies, and techniques to improve the value of the system 
-
-What are we looking for?
-
-Bachelor’s/Master’s degree in engineering with 1+ years of experience building enterprise systems
-Worked on one or more large scale java applications
-Good understanding of nuances of distributed systems, scalability, and availability
-Good knowledge of one or more relational and NoSQL databases and transactions
-Shrewd focus on latency and throughput of services
-In-depth understanding of concurrency, synchronization, NIO, memory allocation and GC
-Experience with IaaS clouds like AWS/Google Cloud, Azure, OpenStack etc.
-Experience in working with Message Brokers and Application Containers`);
+await booleanSearchGenerator();
