@@ -4,6 +4,7 @@ import { Button } from "./components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NavigationMenuDemo } from "@/components/ui/NavigationMenuDemo";
+import axios from "axios";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -15,21 +16,19 @@ function App() {
   };
 
   const handleSubmit = async () => {
-    setIsLoading(true); // Show loading skeleton
-    setResult(null); // Reset result before making the call
+    setIsLoading(true); // Show loading state
 
     try {
-      // Simulating backend call with a delay
-      const response = await new Promise((resolve) =>
-        setTimeout(() => resolve(`Result: ${inputValue}`), 2000)
-      );
+      const response = await axios.post("http://localhost:3000/generate-boolean-search", {
+        jobDescription: inputValue,
+      });
 
-      setResult(response); // Set the result once the backend call completes
+      setResult(response.data.booleanSearch); // Set the result once the backend call completes
     } catch (error) {
       console.error("Error fetching data:", error);
       setResult("Error fetching data");
     } finally {
-      setIsLoading(false); // Hide skeleton once done
+      setIsLoading(false); // Hide loading state once done
     }
   };
 
