@@ -3,6 +3,7 @@ import "./App.css";
 import { Button } from "./components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { NavigationMenuDemo } from "@/components/ui/NavigationMenuDemo";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -33,39 +34,48 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col w-full h-screen px-4 pb-4">
-      <div className="output-field flex-col space-y-2 mb-4">
+    <div className="flex flex-col">
+    <NavigationMenuDemo />
+    <div className="flex flex-col items-center w-full h-screen p-6 space-y-6">
+      
+      <div className="output-field flex flex-col space-y-2 w-full max-w-md">
         {isLoading ? (
           // Show skeletons while loading
           <>
-            <Skeleton className="w-[500px] h-[20px] rounded-full" />
-            <Skeleton className="w-[500px] h-[20px] rounded-full" />
+            <Skeleton className="w-full h-10 rounded-md" />
+            <Skeleton className="w-full h-10 rounded-md" />
           </>
         ) : (
           // Show result if available
-          result && <div className="w-[500px] h-[20px] rounded-full text-gray-800">{result}</div>
+          result && <div className="w-full h-10 rounded-md text-gray-800">{result}</div>
         )}
       </div>
-      <div className="flex w-full gap-2">
+      <div className="flex flex-col gap-4 w-full max-w-md md:flex-row md:gap-2">
         <Input
           value={inputValue}
           onChange={handleInputChange}
-          className="flex-grow p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter text"
         />
         <Button
           onClick={handleSubmit}
-          className="px-4 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+          className="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
           variant="destructive"
         >
           Submit
         </Button>
       </div>
     </div>
+    
+    </div>
   );
 }
 
 export default App;
+
+
+
+
 
 
 
