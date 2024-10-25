@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { booleanSearchGenerator } from "./services/booleanSearchGeneratorService.js";
+import { googleSearch } from "./services/google-search-service.js";
 import dotenv from "dotenv";
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,8 +19,9 @@ app.post("/generate-boolean-search", async (req, res) => {
   }
 
   try {
-    const booleanSearch = await booleanSearchGenerator(jobDescription);
-    res.json({ booleanSearch });
+    const booleanSearchString = await booleanSearchGenerator(jobDescription);
+    const googleSearchResults = await googleSearch(booleanSearchString);
+    res.json({ booleanSearchString, googleSearchResults });
   } catch (error) {
     console.error("Error in generateBooleanSearchQuery:", error);
     res.status(500).json({ error: "Failed to generate boolean search query" });

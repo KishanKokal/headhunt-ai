@@ -15,5 +15,3 @@ export const googleSearch = async (booleanSearchString) => {
   console.log(results);
   return results;
 };
-
-googleSearch("Mandar Kulkarni Customer Engineering");
