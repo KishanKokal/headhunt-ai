@@ -4,12 +4,17 @@ import { booleanSearchGenerator } from "./services/booleanSearchGeneratorService
 import { googleSearch } from "./services/google-search-service.js";
 import { getProfileDetailsForAllCandidates } from "./services/contact-out-service.js";
 import dotenv from "dotenv";
+<<<<<<< HEAD
 dotenv.config();
+=======
+import cors from "cors";
+>>>>>>> 8bafa761c22ab77244905946c0d124029b17ab7f
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // Route to handle job description and generate Boolean search
