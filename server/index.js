@@ -4,11 +4,9 @@ import { booleanSearchGenerator } from "./services/booleanSearchGeneratorService
 import { googleSearch } from "./services/google-search-service.js";
 import { getProfileDetailsForAllCandidates } from "./services/contact-out-service.js";
 import dotenv from "dotenv";
-<<<<<<< HEAD
-dotenv.config();
-=======
 import cors from "cors";
->>>>>>> 8bafa761c22ab77244905946c0d124029b17ab7f
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
